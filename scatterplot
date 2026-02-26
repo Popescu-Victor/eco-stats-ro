@@ -1,0 +1,19 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv('C:\\Users\\roman\\Desktop\\Projects\\rich.csv')
+print(df.info())
+
+hor = df['']
+ver = df['']
+plt.scatter(hor, ver, color='blue',marker='x', s=20, alpha=0.5)
+
+coefficients = np.polyfit(hor, ver, 1)
+polynomial = np.poly1d(coefficients)
+x = np.linspace(hor.min(), hor.max(), 100)
+plt.plot(x, polynomial(x), color='red', linestyle='--')
+plt.xlabel(hor.name)
+plt.ylabel(ver.name)
+
+plt.show()
