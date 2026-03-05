@@ -30,10 +30,16 @@ label.grid(row=1, column=1, sticky="ew", padx=5, pady=5)
 entry2 = tk.Entry(root)
 entry2.grid(row=2, column=0, sticky="ew", padx=5, pady=5)
 
-def graph_test():
+year_1 = 0
+year_2 = 0
+
+def graph():
     canvas_right.delete("all")
     value = entry1.get()
-    canvas_right.create_text(200, 150, text=value)
+    divided = value.split(' ')
+    year_1 = divided[0]
+    year_2 = divided[1]
+    canvas_right.create_text(200, 150, text=str(year_1)+str(year_2))
 
 button = tk.Button(root, text="Show graph", command = graph_test)
 button.grid(row=2, column=1, sticky="ew", padx=5, pady=5)
