@@ -1,0 +1,30 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Layout Example")
+root.geometry("600x400")
+
+
+root.grid_rowconfigure(0, weight=1)  
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+
+canvas_left = tk.Canvas(root, bg="white")
+canvas_left.grid(row=0, column=0, sticky="nsew")
+
+canvas_right = tk.Canvas(root, bg="white")
+canvas_right.grid(row=0, column=1, sticky="nsew")
+
+entry1 = tk.Entry(root)
+entry1.grid(row=1, column=0, sticky="ew", padx=5, pady=5)
+
+label = tk.Label(root, text="Add the species in the first \n textbox and the years you want to compare, \nseparated by a space, in the one below.")
+label.grid(row=1, column=1, sticky="ew", padx=5, pady=5)
+
+entry2 = tk.Entry(root)
+entry2.grid(row=2, column=0, sticky="ew", padx=5, pady=5)
+
+button = tk.Button(root, text="Show graph")
+button.grid(row=2, column=1, sticky="ew", padx=5, pady=5)
+
+root.mainloop()
