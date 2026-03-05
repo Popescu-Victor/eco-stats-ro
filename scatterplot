@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv('C:\\Users\\roman\\Desktop\\Projects\\rich.csv')
+df = pd.read_csv('...')
 print(df.info())
 
 hor = df['']
