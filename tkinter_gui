@@ -30,7 +30,12 @@ label.grid(row=1, column=1, sticky="ew", padx=5, pady=5)
 entry2 = tk.Entry(root)
 entry2.grid(row=2, column=0, sticky="ew", padx=5, pady=5)
 
-button = tk.Button(root, text="Show graph")
+def graph_test():
+    canvas_right.delete("all")
+    value = entry1.get()
+    canvas_right.create_text(200, 150, text=value)
+
+button = tk.Button(root, text="Show graph", command = graph_test)
 button.grid(row=2, column=1, sticky="ew", padx=5, pady=5)
 
 root.mainloop()
