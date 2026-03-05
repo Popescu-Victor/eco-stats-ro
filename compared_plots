@@ -3,20 +3,22 @@ from pygbif import maps
 from PIL import Image
 import io
 
+
+# Whichever two years are chosen below will be plotted side by side.
 year_1 = 1998
 year_2 = 2000
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
-for ax, year in zip(axes, [year_1, year_2]):
-    out = maps.map(taxonKey=212, year=year, bin="hex",
+for ax, year_x in zip(axes, [year_1, year_2]):
+    out = maps.map(taxonKey=212, year=year_x, bin="hex",
                    hexPerTile=300, style="classic-noborder.poly")
     
 
     img = Image.open(io.BytesIO(out.response.content))
     
     ax.imshow(img)
-    ax.set_title(f"Year: {year}")
+    ax.set_title(f"Year: {year_x}")
     ax.axis('off')
 
 plt.suptitle("Species Distribution by Year", fontsize=14)
