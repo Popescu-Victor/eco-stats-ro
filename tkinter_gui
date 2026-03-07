@@ -59,6 +59,8 @@ def graph_test():
     chart.draw()
     chart.get_tk_widget().pack(fill="both", expand=True)
 
+    ax1.set_title(f"Bird sightings in the year {year_1}")
+    ax2.set_title(f"Bird sightings in the year {year_2}")
     
     chart2 = FigureCanvasTkAgg(fig2, master=canvas_right)
     chart2.draw()
