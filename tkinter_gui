@@ -34,12 +34,36 @@ year_1 = 0
 year_2 = 0
 
 def graph_test():
-    canvas_right.delete("all")
     value = entry1.get()
     divided = value.split(' ')
-    year_1 = divided[0]
-    year_2 = divided[1]
-    canvas_right.create_text(200, 150, text=str(year_1)+str(year_2))
+    year_1 = divided[0].strip()
+    year_2 = divided[1].strip()
+
+    plot_year_1 = maps.map(taxonKey=212, year=int(year_1), bin="hex", hexPerTile=300, style="classic-noborder.poly")
+    plot_year_2 = maps.map(taxonKey=212, year=int(year_2), bin="hex", hexPerTile=300, style="classic-noborder.poly")
+
+    img_array_1 = plot_year_1.img.get_array()
+    img_array_2 = plot_year_2.img.get_array()
+
+    fig1, ax1 = plt.subplots()
+    ax1.imshow(img_array_1)
+    ax1.axis('off')
+
+
+    fig2, ax2 = plt.subplots()
+    ax2.imshow(img_array_2)
+    ax2.axis('off')
+
+
+    chart = FigureCanvasTkAgg(fig1, master=canvas_left)
+    chart.draw()
+    chart.get_tk_widget().pack(fill="both", expand=True)
+
+    
+    chart2 = FigureCanvasTkAgg(fig2, master=canvas_right)
+    chart2.draw()
+    chart2.get_tk_widget().pack(fill="both", expand=True)
+
 
 button = tk.Button(root, text="Show graph", command = graph_test)
 button.grid(row=2, column=1, sticky="ew", padx=5, pady=5)
