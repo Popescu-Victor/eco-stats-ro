@@ -33,7 +33,7 @@ entry2.grid(row=2, column=0, sticky="ew", padx=5, pady=5)
 year_1 = 0
 year_2 = 0
 
-def graph():
+def graph_test():
     canvas_right.delete("all")
     value = entry1.get()
     divided = value.split(' ')
